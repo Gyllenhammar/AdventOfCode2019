@@ -8,17 +8,21 @@ except IOError:
   sys.exit(0)
 
 def calculateFuel(mass):
+  return math.floor(int(mass)/3) - 2
+
+
+def calcFuelNeeded(mass):
     fuelNeeded = 0
-    fuelNeeded += math.floor(int(mass)/3) - 2
+    fuelNeeded += calculateFuel(mass)
     if (fuelNeeded > 0):
-        fuelNeeded +=  int(calculateFuel(fuelNeeded))
+        fuelNeeded +=  int(calcFuelNeeded(fuelNeeded))
         return fuelNeeded
     else:
         return 0
 
 totFuel = 0
 for line in file:
-    totFuel += calculateFuel(int(line))
+    totFuel += calcFuelNeeded(int(line))
 
 file.close
 print(totFuel)

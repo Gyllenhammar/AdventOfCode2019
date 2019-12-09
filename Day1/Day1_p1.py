@@ -1,15 +1,18 @@
 import math
 
-
-file = open("Day1_input.txt", "r")
-
+try:
+  file = open("day1_input.txt", "r")
+except IOError:
+  print("Error: Can't open file")
+  import sys
+  sys.exit(0)
 
 def calculateFuel(mass):
-  return int(math.floor(int(mass)/3) - 2)
+  return math.floor(int(mass)/3) - 2
 
 fuel = 0
 for line in file:
-  fuel += calculateFuel
+  fuel += calculateFuel(line)
 
 file.close
 print(fuel)
