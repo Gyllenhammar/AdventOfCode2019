@@ -45,12 +45,9 @@ def findNounVerb():
         for verb in range(100):
             memory[1] = noun
             memory[2] = verb
-            print("Trying noun:", noun)
-            print("Trying verb:", verb)
             outputMemory = runProgram(memory)
             #print(outputMemory)
             if (outputMemory[0] == 19690720):
-                print()
                 print("Solution:")
                 print(100*noun+verb)
                 return
